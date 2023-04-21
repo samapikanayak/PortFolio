@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from .manager import CustomUserManager
+from django.contrib.auth.hashers import mask_hash, make_password
 
 def phone_number_validation(value):
     '''validate phone number'''
@@ -20,8 +21,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=100)
     home_address = models.TextField()
     phone_number = models.CharField(max_length=10, validators=[phone_number_validation])
-    is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     USERNAME_FIELD = 'username'
@@ -30,5 +31,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self) -> str:
         return self.username
+    
+
+            
     
      

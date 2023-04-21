@@ -26,7 +26,7 @@ class SignUpSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
-        extra_kwargs = {"is_staff":{"required": False}, "is_active":{"required": False}, "username":{"required": False},"email":{"required": False}, "password":{"write_only": True, "required": False}}
+        extra_kwargs = {"is_staff":{"required": False}, "is_active":{"required": False}, "username":{"required": False},"email":{"required": False}, "password":{"required":False, "write_only":True}}
 
     def update(self, instance, validated_data):
         instance.username = validated_data.get("username", instance.username)
@@ -34,6 +34,9 @@ class SignUpSerializer(serializers.ModelSerializer):
         instance.name = validated_data.get("name", instance.name)
         instance.home_address = validated_data.get("home_address", instance.home_address)
         instance.phone_number = validated_data.get("phone_number", instance.phone_number)
+        instance.is_active = validated_data.get("is_active", instance.is_active)
+        instance.is_staff = validated_data.get("is_staff", instance.is_staff)
+        # instance.password = validated_data.get("password", instance.password)
         instance.save()
         return instance
     

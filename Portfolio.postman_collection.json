@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "0bbb7371-dddb-4ab4-bd30-cddcb30d99cc",
+		"name": "Portfolio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"sam08\",\n    \"password\":\"sam\",\n    \"email\":\"sams0a@gmail.com\",\n    \"name\":\"moon\",\n    \"home_address\":\"jsp\",\n    \"phone_number\":\"9873862907\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/user/signup/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"sam\",\n    \"password\":\"sam\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/user/signin/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"signin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seeAllUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyMDEzMzQ3LCJpYXQiOjE2ODIwMDk3NDcsImp0aSI6IjYwYjhlZmEwZjI3YjRhYmU4MTFlNzA5NzQzODYyZDg5IiwidXNlcl9pZCI6M30.fBbR5vTIgJyN_jyj8IdhxlG6cme9thtq6InBm0RPRnM",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/user/get-user-detail/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"get-user-detail",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyMDEzMzQ3LCJpYXQiOjE2ODIwMDk3NDcsImp0aSI6IjYwYjhlZmEwZjI3YjRhYmU4MTFlNzA5NzQzODYyZDg5IiwidXNlcl9pZCI6M30.fBbR5vTIgJyN_jyj8IdhxlG6cme9thtq6InBm0RPRnM",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/user/get-user-detail/6/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"get-user-detail",
+						"6",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserDetail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyMDEzMzQ3LCJpYXQiOjE2ODIwMDk3NDcsImp0aSI6IjYwYjhlZmEwZjI3YjRhYmU4MTFlNzA5NzQzODYyZDg5IiwidXNlcl9pZCI6M30.fBbR5vTIgJyN_jyj8IdhxlG6cme9thtq6InBm0RPRnM",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/user/get-user-detail/5/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"get-user-detail",
+						"5",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyMDE3MTIwLCJpYXQiOjE2ODIwMTM1MjAsImp0aSI6IjI1NGY0NzNiMjcyNzQxOTc4OGFkNmQzYzdiMWUxYTc5IiwidXNlcl9pZCI6M30.l4U7SSrJH_MyMYo8Y8CFXmuyUp7uP8kN6Y-b0djvfjs",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"moon\",\n    \"home_address\":\"jsp\",\n    \"phone_number\":\"9873862907\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/user/get-user-detail/5/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"get-user-detail",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "map",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

@@ -12,6 +12,7 @@ from rest_framework.viewsets import ModelViewSet
 from geopy.geocoders import Nominatim
 import folium
 from django.http import HttpResponse
+from django.contrib.auth.hashers import check_password
 
 class CustomTokenObtainPairView(APIView):
     permission_classes = (AllowAny,)
@@ -19,8 +20,8 @@ class CustomTokenObtainPairView(APIView):
     def post(self,request):
         login_response = {}
         http_status = None
-        user = authenticate(
-            username=request.data['username'], password=request.data['password'])
+        user = User.objects.filter(username=request.data['username']).first()
+        # breakpoint()
         if user:
             serializer_data = self.serializer_class.validate(attrs=request.data)
             login_response = serializer_data
@@ -42,7 +43,9 @@ class UserRegisterViewSet(CreateAPIView, GenericAPIView):
 
         serializer = serializers.SignUpSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        data = request.data
+        User.objects.create_user(**data)
+        # serializer.save()
         response["message"] = "User Created Successfully"
         response["data"] = serializer.data
         http_status = status.HTTP_201_CREATED
